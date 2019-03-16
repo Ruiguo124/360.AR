@@ -16,7 +16,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Toyota"></activity>
+        <activity android:name=".LoanBuy"></activity>
+        <activity android:name=".TestDrive" />
+        <activity android:name=".Toyota" />
         <activity android:name=".ListCar" />
         <activity android:name=".MainActivity" />
 

@@ -15,7 +15,7 @@ public class ListCar extends AppCompatActivity {
 
 
 
-    String items[] = new String[]{"Acura", "Audi", "BMW", "Cadillac", "Chevrolet", "GMC", "Honda", "Lexus", "Toyota", "Volvo"};
+    String items[] = new String[]{"Acura", "Audi", "BMW", "Bentley", "Buick", "Byton", "Cadillac", "Christler", "Chevrolet", "GMC", "Honda", "Lexus", "Toyota", "Volvo", "Wail" };
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
