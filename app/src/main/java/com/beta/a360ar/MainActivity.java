@@ -6,26 +6,41 @@ import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.FrameLayout;
 
+import com.google.ar.core.Anchor;
+import com.google.ar.core.HitResult;
 import com.google.ar.core.ArCoreApk;
+import com.google.ar.core.Plane;
+import com.google.ar.sceneform.AnchorNode;
 import com.google.ar.sceneform.Node;
+import com.google.ar.sceneform.math.Vector3;
 import com.google.ar.sceneform.rendering.ModelRenderable;
+import com.google.ar.sceneform.rendering.ViewRenderable;
 import com.google.ar.sceneform.ux.ArFragment;
+import com.google.ar.sceneform.ux.TransformableNode;
 
 public class MainActivity extends AppCompatActivity {
 private Button button;
 private ArFragment arFragment;
 private ModelRenderable toyotaR;
+    private ViewRenderable infoR;
+
 private static final String TAG = "MainActivity";
+    private static final String url = "jdbc:mysql:hackathon-db.bdc.n360.io/hackathon";
+    private static final String user = "events";
+    private static final String pass = "Hack@th0n2019";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         button = findViewById(R.id.button);
+        button.setVisibility(View.GONE);
+
         //maybeEnableArButton();
 
         ModelRenderable.builder()
@@ -40,12 +55,46 @@ private static final String TAG = "MainActivity";
                 .exceptionally(
                         throwable -> {
                             Log.e(TAG, "Unable to load Renderable.", throwable);
+                            System.out.println("CANT LOOAD");
                             return null;
                         });
-        Node node = new Node();
+
+        ViewRenderable.builder().setView(this,R.layout.info_board)
+                .build()
+                .thenAccept(renderable -> infoR = renderable);
+
+
+
         arFragment = (ArFragment) getSupportFragmentManager().findFragmentById(R.id.ar_fragment);
-        node.setParent(arFragment.getArSceneView().getScene());
-        node.setRenderable(toyotaR);
+
+
+
+
+        arFragment.setOnTapArPlaneListener(
+                (HitResult hitResult, Plane plane, MotionEvent motionEvent) -> {
+
+                    // Create the Anchor.
+                    Anchor anchor = hitResult.createAnchor();
+                    AnchorNode anchorNode = new AnchorNode(anchor);
+                    anchorNode.setParent(arFragment.getArSceneView().getScene());
+
+
+                    // Create the transformable andy and add it to the anchor.
+                    TransformableNode andy = new TransformableNode(arFragment.getTransformationSystem());
+                    andy.setParent(anchorNode);
+                    andy.setRenderable(toyotaR);
+
+
+                    Node node = new Node();
+                    node.setParent(andy);
+                    node.setRenderable(infoR);
+                    node.setLocalPosition(new Vector3(0.4f, 1.2f, 1f));
+
+                    andy.select();
+
+                });
+
+
 
 
 

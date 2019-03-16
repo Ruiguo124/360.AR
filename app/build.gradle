@@ -50,3 +50,8 @@ sceneform.asset('sampledata/Toyota Prius XW30 2010.obj',
         'default',
         'sampledata/Toyota Prius XW30 2010.sfa',
         'src/main/assets/Toyota Prius XW30 2010')
+
+sceneform.asset('sampledata/Mazda MAZDA6 Sport 2008.obj',
+        'default',
+        'sampledata/Mazda MAZDA6 Sport 2008.sfa',
+        'src/main/assets/Mazda MAZDA6 Sport 2008')
