@@ -75,12 +75,12 @@ private static final String TAG = "MainActivity";
             }, 200);
         }
         if (availability.isSupported()) {
-            mArButton.setVisibility(View.VISIBLE);
-            mArButton.setEnabled(true);
+            button.setVisibility(View.VISIBLE);
+            button.setEnabled(true);
             // indicator on the button.
         } else { // Unsupported or unknown.
-            mArButton.setVisibility(View.INVISIBLE);
-            mArButton.setEnabled(false);
+            button.setVisibility(View.INVISIBLE);
+            button.setEnabled(false);
         }
     }
 
