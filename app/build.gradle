@@ -35,6 +35,7 @@ dependencies {
     // Alternatively, use ArSceneView without the UX dependency.
     implementation 'com.google.ar.sceneform:core:1.7.0'
 
+    implementation 'com.android.support:design:28.0.0'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
@@ -50,8 +51,11 @@ sceneform.asset('sampledata/Toyota Prius XW30 2010.obj',
         'default',
         'sampledata/Toyota Prius XW30 2010.sfa',
         'src/main/assets/Toyota Prius XW30 2010')
+<<<<<<< HEAD
 
 sceneform.asset('sampledata/Mazda MAZDA6 Sport 2008.obj',
         'default',
         'sampledata/Mazda MAZDA6 Sport 2008.sfa',
         'src/main/assets/Mazda MAZDA6 Sport 2008')
+=======
+>>>>>>> 2d5e169bb0f123489f4ba6f776071137e7e0969d

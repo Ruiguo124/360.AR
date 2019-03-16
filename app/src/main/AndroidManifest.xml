@@ -2,17 +2,12 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.beta.a360ar">
 
-
-
-
     <uses-permission android:name="android.permission.CAMERA" />
-
-    <!-- Indicates that app requires ARCore ("AR Required"). Ensures app is only
+    <!--
+ Indicates that app requires ARCore ("AR Required"). Ensures app is only
          visible in the Google Play Store on devices that support ARCore.
     -->
     <uses-feature android:name="android.hardware.camera.ar" />
-
-
 
     <application
         android:allowBackup="true"
@@ -21,10 +16,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".Toyota"></activity>
+        <activity android:name=".ListCar" />
+        <activity android:name=".MainActivity" />
 
-        <meta-data android:name="com.google.ar.core" android:value="required" />
+        <meta-data
+            android:name="com.google.ar.core"
+            android:value="required" />
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
 
-        <activity android:name=".MainActivity">
+        <activity android:name=".HomeScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
