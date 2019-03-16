@@ -13,10 +13,11 @@ import android.widget.FrameLayout;
 import com.google.ar.core.ArCoreApk;
 import com.google.ar.sceneform.Node;
 import com.google.ar.sceneform.rendering.ModelRenderable;
+import com.google.ar.sceneform.ux.ArFragment;
 
 public class MainActivity extends AppCompatActivity {
-private Button mArButton;
-private Fragment arFragment;
+private Button button;
+private ArFragment arFragment;
 private ModelRenderable toyotaR;
 private static final String TAG = "MainActivity";
 
@@ -24,8 +25,8 @@ private static final String TAG = "MainActivity";
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        mArButton = findViewById(R.id.button);
-        maybeEnableArButton();
+        button = findViewById(R.id.button);
+        //maybeEnableArButton();
 
         ModelRenderable.builder()
                 // To load as an asset from the 'assets' folder ('src/main/assets/andy.sfb'):
@@ -42,6 +43,7 @@ private static final String TAG = "MainActivity";
                             return null;
                         });
         Node node = new Node();
+        arFragment = (ArFragment) getSupportFragmentManager().findFragmentById(R.id.ar_fragment);
         node.setParent(arFragment.getArSceneView().getScene());
         node.setRenderable(toyotaR);
 
