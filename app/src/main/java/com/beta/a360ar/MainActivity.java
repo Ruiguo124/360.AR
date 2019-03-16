@@ -10,6 +10,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.FrameLayout;
+import android.widget.TextView;
 
 import com.google.ar.core.Anchor;
 import com.google.ar.core.HitResult;
@@ -23,16 +24,19 @@ import com.google.ar.sceneform.rendering.ViewRenderable;
 import com.google.ar.sceneform.ux.ArFragment;
 import com.google.ar.sceneform.ux.TransformableNode;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
 public class MainActivity extends AppCompatActivity {
 private Button button;
 private ArFragment arFragment;
 private ModelRenderable toyotaR;
+
     private ViewRenderable infoR;
 
 private static final String TAG = "MainActivity";
-    private static final String url = "jdbc:mysql:hackathon-db.bdc.n360.io/hackathon";
-    private static final String user = "events";
-    private static final String pass = "Hack@th0n2019";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +44,16 @@ private static final String TAG = "MainActivity";
         setContentView(R.layout.activity_main);
         button = findViewById(R.id.button);
         button.setVisibility(View.GONE);
+
+
+
+    /* TODO MYSQL CONNECTION WITH JDBC */
+
+
+
+
+
+
 
         //maybeEnableArButton();
 
@@ -70,6 +84,7 @@ private static final String TAG = "MainActivity";
 
 
 
+
         arFragment.setOnTapArPlaneListener(
                 (HitResult hitResult, Plane plane, MotionEvent motionEvent) -> {
 
@@ -82,7 +97,9 @@ private static final String TAG = "MainActivity";
                     // Create the transformable andy and add it to the anchor.
                     TransformableNode andy = new TransformableNode(arFragment.getTransformationSystem());
                     andy.setParent(anchorNode);
+
                     andy.setRenderable(toyotaR);
+
 
 
                     Node node = new Node();
@@ -93,6 +110,8 @@ private static final String TAG = "MainActivity";
                     andy.select();
 
                 });
+
+
 
 
 

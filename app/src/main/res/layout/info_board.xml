@@ -1,27 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/testview"
-    android:layout_width="120dp"
-    android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:padding="4dp"
+    android:layout_width="300dp"
+    android:layout_height="200dp"
     android:clipChildren="false"
-    android:clipToPadding="false" >
+    android:clipToPadding="false"
+    android:orientation="vertical"
+    android:padding="4dp">
+
+    <TextView
+        android:id="@+id/modelTextView"
+        android:layout_width="153dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="149dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginBottom="172dp"
+        android:text="Prius" />
 
     <TextView
         android:id="@+id/make"
-        android:layout_width="match_parent"
+        android:layout_width="142dp"
         android:layout_height="wrap_content"
-        android:text="Orbit Speed:"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="149dp"
+        android:text="Make : "
         android:textAlignment="center" />
 
     <TextView
         android:id="@+id/model"
-        android:layout_width="match_parent"
+        android:layout_width="141dp"
         android:layout_height="wrap_content"
-        android:text="Orbit Speed:"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="170dp"
+        android:text="Model :"
         android:textAlignment="center" />
 
+    <Button
+        android:id="@+id/testDrive"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="53dp"
+        android:text="Request Test Drive" />
 
-</LinearLayout>
+    <Button
+        android:id="@+id/buyButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="8dp"
+        android:text="Loan Buy" />
+
+    <TextView
+        android:id="@+id/makeTextView"
+        android:layout_width="138dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="11dp"
+        android:layout_marginBottom="152dp"
+        android:text="Toyota" />
+
+
+</RelativeLayout>
